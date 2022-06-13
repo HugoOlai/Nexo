@@ -1,0 +1,15 @@
+.Item{
+    padding: 10px;
+    text-align: left;
+    list-style-type: none;
+    //background-color:rgb(157, 102, 209);
+    position:relative;
+    flex-direction: row-reverse;
+
+}
+
+.MenuItem{
+    padding: 10px;
+    text-align: left;
+    color: rgb(0, 0, 0);    
+}
