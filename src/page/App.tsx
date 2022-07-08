@@ -14,7 +14,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import atualizaListaPerguntas from './atualizaListaPerguntas.js'; 
+import {atualizaListaPerguntas, voltarListaPerguntas} from './atualizaListaPerguntas.js'; 
 
 function App() {
   const [item, setItem] = useState([{
@@ -30,6 +30,7 @@ function App() {
     Nome: 'Problema com reembolso de passagem',
   }])
   const [definetamanho, setDefinetamanho] = useState<boolean>(false)
+  const [voltarPerguntas, setVoltarPerguntas] = useState<string>()
 
   function Redireciona(Nome: string){
     console.log(Nome)
@@ -37,19 +38,9 @@ function App() {
     setItem(listaEncontrada);
   }
 
-  function voltar(){
-    setItem([{
-      Nome: 'Por qual dessas situações você passou?',
-    },
-    {
-      Nome: 'Problema com voo',
-    }, 
-    {
-      Nome: 'Problema com bagagem',
-    }, 
-    {
-      Nome: 'Problema com reembolso de passagem',
-    }])
+  function voltar(pergunta: string){
+    let listaEncontrada = voltarListaPerguntas(pergunta);
+    setItem(listaEncontrada)
   }
 
 useEffect(() => {
@@ -90,7 +81,7 @@ return (
                 </Typography>
               ))}
               <CardActions>
-                <Button startIcon={<ArrowBackIcon />} color="inherit" onClick={()=>voltar()}>Voltar</Button>
+                <Button startIcon={<ArrowBackIcon />} color="inherit" onClick={()=>voltar(item[0].Nome)}>Voltar</Button>
               </CardActions>
             </CardContent>
             
@@ -111,7 +102,7 @@ return (
                 </Typography>
               ))}
               <CardActions>
-                <Button startIcon={<ArrowBackIcon />} color="inherit" onClick={()=>voltar()}>Voltar</Button>
+                <Button startIcon={<ArrowBackIcon />} color="inherit" onClick={()=>voltar(item[0].Nome)}>Voltar</Button>
               </CardActions>
             </CardContent>
             

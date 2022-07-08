@@ -1,4 +1,4 @@
-export default function atualizaListaPerguntas(Nome){
+export function atualizaListaPerguntas(Nome){
     console.log(Nome)
     switch (Nome) {
       case 'Problema com voo':
@@ -22,6 +22,9 @@ export default function atualizaListaPerguntas(Nome){
       case 'Meu voo atrasou':
       case 'Meu voo foi cancelado':
         return [{
+          Nome:'Quando você ficou sabendo sobre o atraso do seu voo?'
+        },
+        {
           Nome: 'Somente no aeroporto',
         },
         {
@@ -32,8 +35,70 @@ export default function atualizaListaPerguntas(Nome){
         }]
       break;
     
+      case 'Entre 4h e 8h':
+        return  [{
+          Nome:'Você perdeu algum compromisso por causa da alteração do seu voo?'
+        },
+        {
+          Nome: 'Sim, e tenho como provar',
+        },
+        {
+          Nome: 'Sim, mas não tenho como provar',
+        }, 
+        {
+          Nome: 'Não!',
+        }]
+      break;
+
+      case 'Não!':
+        return  [{
+          Nome:'Você recebeu algum tipo de assistência da companhia aérea?'
+        },
+        {
+          Nome: 'Sim, e tenho como provar!',
+        },
+        {
+          Nome: 'Não!',
+        }]
+      break;
+
+      case 'Sim, mas não tenho como provar':
+        return  [{
+          Nome:'Você recebeu algum tipo de assistência da companhia aérea?'
+        },
+        {
+          Nome: 'Sim, e tenho como provar',
+        },
+        {
+          Nome: 'Não',
+        }]
+      break;
+
+      case 'Mais de 8h':
+      case 'Não viajei':
+      case 'Sim, e tenho como provar':
+      case 'Não':
+        return[{
+          Nome:'Qual foi o motivo do atraso?'
+        },
+        {
+          Nome: 'Problema técnico/operacional',
+        },
+        {
+          Nome: 'Climático',
+        }, 
+        {
+          Nome: 'Outros',
+        }]
+      break;
+
       case 'Não pude embarcar porque meu voo estava lotado (overbooking)':
+      case 'Somente no aeroporto':  
+      case 'Menos de 72h antes do voo':
         return [{
+          Nome: 'Com quanto tempo de atraso você chegou ao aeroporto de destino final da sua viagem?'
+        },
+        {
           Nome: 'Menos de 4h',
         },
         {
@@ -52,6 +117,9 @@ export default function atualizaListaPerguntas(Nome){
     
       case 'Meu voo de volta foi cancelado por não comparecimento ao voo de ida (no-show)':
         return [{
+          Nome: 'Seu voo foi nacional ou internacional?'
+        },
+        {
           Nome: 'Nacional',
         },
         {
@@ -82,10 +150,92 @@ export default function atualizaListaPerguntas(Nome){
           Nome: 'Eu desisti da minha passagem',
         }]
       break;
+
+      case 'Mais de 72h antes do voo':
+        return [{
+          Nome: 'Entre as opções abaixo, quando seria a data de partida do voo que você comprou?',
+        },
+        {
+          Nome: 'Antes de 19/03/2020'
+        },
+        {
+          Nome: 'Entre 19/03/2020 e 31/12/2021'
+        },
+        {
+          Nome: 'A partir de 01/01/2022'
+        },]
+      break
       
       default:
           return []
         break;
     }
     
+  }
+
+  export function voltarListaPerguntas(pergunta){
+    switch (pergunta) {
+      case 'Qual foi o seu problema?':
+      case 'O que aconteceu com a sua bagagem?':
+      case 'A companhia aérea cancelou seu voo ou você desistiu de viajar?':
+        return [{
+          Nome: 'Por qual dessas situações você passou?',
+        },
+        {
+          Nome: 'Problema com voo',
+        }, 
+        {
+          Nome: 'Problema com bagagem',
+        }, 
+        {
+          Nome: 'Problema com reembolso de passagem',
+        }]
+      break
+      
+      case 'Quando você ficou sabendo sobre o atraso do seu voo?':
+      case 'Com quanto tempo de atraso você chegou ao aeroporto de destino final da sua viagem?':
+      case 'Seu voo foi nacional ou internacional?':
+        return [{
+          Nome: 'Qual foi o seu problema?',
+        },
+        {
+          Nome: 'Meu voo atrasou',
+        }, 
+        {
+          Nome: 'Meu voo foi cancelado',
+        }, 
+        {
+          Nome: 'Não pude embarcar porque meu voo estava lotado (overbooking)',
+        }, 
+        {
+          Nome: 'Meu voo de volta foi cancelado por não comparecimento ao voo de ida (no-show)',
+        }]
+        break;
+      
+      case 'Qual foi o motivo do atraso?':
+      case 'Você perdeu algum compromisso por causa da alteração do seu voo?':
+        return[{
+          Nome: 'Com quanto tempo de atraso você chegou ao aeroporto de destino final da sua viagem?'
+        },
+        {
+          Nome: 'Menos de 4h',
+        },
+        {
+          Nome: 'Entre 4h e 8h',
+        }, 
+        {
+          Nome: 'Mais de 8h',
+        }, 
+        {
+          Nome: 'Não viajei',
+        }, 
+        {
+          Nome: 'Ainda não cheguei',
+        }]
+      break;
+
+      default:
+          return []
+      break;
+    }
   }
