@@ -1,6 +1,69 @@
 export function atualizaListaPerguntas(Nome){
     console.log(Nome)
     switch (Nome) {
+      case 'Você recebeu algun voucher alimentação da empresa?':
+        return[{
+            Nome: 'Foi direcionado(a) para algum hotel/pousada às custas da empresa?',
+          },
+          {
+            Nome: 'Sim',
+          }, 
+          {
+            Nome: 'Não',
+        }]
+      break;
+
+      case 'Foi direcionado(a) para algum hotel/pousada às custas da empresa?':
+        return[{
+            Nome: 'Você recebeu algum valor em dinheiro ou em crédito para viagens futuras por esse problema?',
+          },
+          {
+            Nome: 'Sim',
+          }, 
+          {
+            Nome: 'Não',
+        }]
+      break;
+
+      case 'Você recebeu algum valor em dinheiro ou em crédito para viagens futuras por esse problema?':
+        return[{
+            Nome: 'Você já buscou seus direitos na Justiça por esse problema?',
+          },
+          {
+            Nome: 'Sim',
+          }, 
+          {
+            Nome: 'Não',
+        }]
+      break;
+
+      case 'Você já buscou seus direitos na Justiça por esse problema?':
+        return[{
+            Nome: 'Teve algum gasto extra devido ao atraso de voo?',
+          },
+          {
+            Nome: 'Sim e tenho como provar',
+          }, 
+          {
+            Nome: 'Sim, mas não tenho como provar',
+          }, 
+          {
+            Nome: 'Não tive gastro extra',
+        }]
+      break;
+
+      case 'Teve algum gasto extra devido ao atraso de voo?':
+        return[{
+            Nome: 'Você possui algum tipo de necessidade especial?',
+          },
+          {
+            Nome: 'Não',
+          }, 
+          {
+            Nome: 'Sim'
+        }]
+      break;
+
       case 'Problema com voo':
       return[{
         Nome: 'Qual foi o seu problema?',
@@ -167,15 +230,66 @@ export function atualizaListaPerguntas(Nome){
       break
       
       default:
-          return []
+          return [{
+            Nome: 'Qual foi o seu problema?',
+          },
+          {
+            Nome: 'Meu voo atrasou',
+          }, 
+          {
+            Nome: 'Meu voo foi cancelado',
+          }, 
+          {
+            Nome: 'Não pude embarcar porque meu voo estava lotado (overbooking)',
+          }, 
+          {
+            Nome: 'Meu voo de volta foi cancelado por não comparecimento ao voo de ida (no-show)',
+          }]
         break;
     }
     
   }
 
+
+
+
+
+
+
+
+
+
+
+
   export function voltarListaPerguntas(pergunta){
     switch (pergunta) {
+      case  'Quantidade de pessoas':
+        return [{
+          Nome: 'Você possui algum tipo de necessidade especial?',
+        },
+        {
+          Nome: 'Não',
+        }, 
+        {
+          Nome: 'Sim'
+      }] 
+      break;
+
       case 'Qual foi o seu problema?':
+        return[{
+          Nome:'Quando você ficou sabendo sobre o atraso do seu voo?'
+        },
+        {
+          Nome: 'Somente no aeroporto',
+        },
+        {
+          Nome: 'Menos de 72h antes do voo',
+        }, 
+        {
+          Nome: 'Mais de 72h antes do voo',
+        }]
+      break;
+
       case 'O que aconteceu com a sua bagagem?':
       case 'A companhia aérea cancelou seu voo ou você desistiu de viajar?':
         return [{
@@ -192,7 +306,7 @@ export function atualizaListaPerguntas(Nome){
         }]
       break
       
-      case 'Quando você ficou sabendo sobre o atraso do seu voo?':
+      //case 'Quando você ficou sabendo sobre o atraso do seu voo?':
       case 'Com quanto tempo de atraso você chegou ao aeroporto de destino final da sua viagem?':
       case 'Seu voo foi nacional ou internacional?':
         return [{
@@ -235,7 +349,18 @@ export function atualizaListaPerguntas(Nome){
       break;
 
       default:
-          return []
+          return [{
+            Nome: 'Por qual dessas situações você passou?',
+          },
+          {
+            Nome: 'Problema com voo',
+          }, 
+          {
+            Nome: 'Problema com bagagem',
+          }, 
+          {
+            Nome: 'Problema com reembolso de passagem',
+        }]
       break;
     }
   }
